@@ -35,11 +35,13 @@ If you'd like to get your hands a bit more dirty:
 
 Slightly more documentation can be found here: http://ensai.readthedocs.io/en/latest/
 
-Finally: We'd love to hear from you. Please let us know if you have any comments or suggestions, or if you have questions about the code or the procedure. 
+Finally: We'd love to hear from you.
+Please let us know if you have any comments or suggestions,
+or if you have questions about the code or the procedure. 
 Also, if you'd like to contribute to this project please let us know.
 
-** If you use this code for your research please cite these two papers: **
+**If you use this code for your research please cite these two papers:**
 
-1) Hezaveh, Perreault Levasseur, & Marshall 2017 
-2) Perreault Levasseur, Hezaveh, & Wechsler, 2017 
+1) [Hezaveh, Perreault Levasseur, & Marshall 2017](https://www.nature.com/articles/nature23463)
+2) [Perreault Levasseur, Hezaveh, & Wechsler, 2017](https://iopscience.iop.org/article/10.3847/2041-8213/aa9704/meta)
 
