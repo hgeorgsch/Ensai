@@ -14,7 +14,10 @@ The results of this work have been published in a Nature letter "Fast Automated 
 For those wanting to try it out: The best place to start is the ipython notebook. It's a quick demonstration of lens modeling with neural networks. 
 This is what you need:
 1) A working version of python and tensorflow. This should be easy: a simple installation on your laptop could probabily just be done with pip. (https://www.tensorflow.org/install/)
-2) The data: Unfortunately the files (specially the trained network weights) are too large to be hosted here. So we have put them here: 1-  [trained network weights](https://stanford.box.com/s/7wtkx1fr77156uec8h8apqm9my0aevpi) 2-  [a sample of lensing images to demonstrate the tool](https://stanford.box.com/s/tb2lpk824kee22ah3gz5b50trbp30vyx) 3-  [and a few cosmic ray and artifact maps](https://stanford.box.com/s/hn6l82pkmhm65xsls6g7tcjq63blj8v7)
+2) The data: Unfortunately the files (specially the trained network weights) are too large to be hosted here. So we have put them here: 
+    1.  [trained network weights](https://stanford.box.com/s/7wtkx1fr77156uec8h8apqm9my0aevpi) 
+    2.  [a sample of lensing images to demonstrate the tool](https://stanford.box.com/s/tb2lpk824kee22ah3gz5b50trbp30vyx) 
+    3.  [and a few cosmic ray and artifact maps](https://stanford.box.com/s/hn6l82pkmhm65xsls6g7tcjq63blj8v7)
 
 
 Please download these, untar them (e.g., tar xvfz CosmicRays.tar.gz), and place them inside the "data/" folder. So at the end inside your "data" folder you should have a folder called "CosmicRays", another called "SAURON_TEST", and a third called "trained_weights" (in addition to the two files that are already there). 
