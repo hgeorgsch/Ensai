@@ -1,5 +1,7 @@
 function [IMS,PARAMS,src_pars,log_kappa] = Lensing_TrainingImage_Generator(nsample,random_seed, WRITE , test_or_train)
 
+% Depends on input file '/GREAT_IMS30.mat'.  Search for `load' for details.
+
 %WRITE = 1
 %test_or_train = 'test'
 if ~exist('WRITE','var')
@@ -13,23 +15,20 @@ rng(random_seed)
 zLENS = 0.5;
 zSOURCE = 2.00;
 
-h=0.71;
-OmegaC=0.222;
-OmegaLambda=0.734;
-sigNORM=0.801;
-OmegaBaryon=0.0449;
-OmegaM=OmegaC+OmegaBaryon;
+h = 0.71;
+OmegaC = 0.222;
+OmegaLambda = 0.734;
+sigNORM = 0.801;
+OmegaBaryon = 0.0449;
+OmegaM = OmegaC+OmegaBaryon;
 c = 2.998E8; G = 6.67259E-11;  Msun= 1.98892e30;
 pc = 3.0857E16; kpc=1e3*pc; Mpc=1e6*pc;
-H0=100*h*(1000/Mpc); %in units of 1/s
-rhocrit=(3*H0^2)/(8*pi*G);   %SI:  kg/m^3
-H=100*h;
+H0 = 100*h*(1000/Mpc); %in units of 1/s
+rhocrit = (3*H0^2)/(8*pi*G);   %SI:  kg/m^3
+H = 100*h;
 Ds = (1e-6) * AngularDiameter(0,zSOURCE);    %in Mpc
 Dd = (1e-6) * AngularDiameter(0,zLENS);    %in Mpc
 Dds = (1e-6) * AngularDiameter(zLENS,zSOURCE);    %in Mpc
-
-
-
 
 extend_ratio = 1.6;
 
@@ -912,141 +911,3 @@ end
 
 
 
-
-% %%
-% disp('Simulating data ...')
-% rng(1)
-% nsample = 9999;
-% logM = zeros(nsample,1);
-% elp = zeros(nsample,1);
-% angle = zeros(nsample,1);
-% xsource = zeros(nsample,1);
-% ysource = zeros(nsample,1);
-% for i=1:nsample
-%     i
-%     logM(i) = rand(1).*(11.8-10.5)+10.5;
-%     elp(i) = rand(1).*0.6;
-%     angle(i) = rand(1).*90;
-% %     XY = datasample([0.1 0.1; -0.1 0.1 ; 0.1 -0.1; -0.1 -0.1],1);
-% %     [XY(1),XY(2)] = pol2cart(rand(1).*2*pi,0.1.*sqrt(2));
-%     xsource(i) = (rand(1)-0.5).*0.4;
-%     ysource(i) = (rand(1)-0.5).*0.4; %datasample([-0.1 0.1],1); %(rand(1)-0.5).*0.1;
-%
-%
-%
-%     [XS ,YS ,R_ein ,sigma_cent ,Minterior]=SIE_SUB_RayTrace(XIM,YIM,XIM,YIM,10^logM(i),elp(i),1e-20,0,zLENS,zSOURCE,angle(i),[0 0]);
-%     SKY_IM = LumProfile(XS,YS,'gaussian',[1 0.05 xsource(i) ysource(i)]);
-%     SKY_IM = SKY_IM./max(SKY_IM(:));
-%
-% %     FFT_IM = fftshift(fft2(fftshift(SKY_IM)));
-% %     mAx = max([real(FFT_IM(:)); imag(FFT_IM(:))]);
-% %     imwrite(real(FFT_IM)./mAx,[datapath 'FFT_real_lens_im96__' num2str(i,'%.4d') '.png']);
-% %     imwrite(imag(FFT_IM)./mAx,[datapath 'FFT_imag_lens_im96__' num2str(i,'%.4d') '.png']);
-%
-% %     imshow(SKY_IM,[],'xdata',[min(XIM(:)) max(XIM(:))].*3600.*180./pi,'ydata',[min(YIM(:)) max(YIM(:))].*3600.*180./pi); colormap(jet)
-% %     pause(0.05)
-%
-%     imwrite(SKY_IM,[datapath 'lens_im96__' num2str(i,'%.4d') '.png']);
-% end
-% dlmwrite([datapath 'logM96.txt'],(logM-10.5)./1.3,' ')
-% dlmwrite([datapath 'elp96.txt'],elp./0.6,' ')
-% dlmwrite([datapath 'angle96.txt'],angle.*0.01./0.9,' ')
-% % hold on
-% % plot(subhalo_pars(3),subhalo_pars(4),' +r','markersize',10)
-%
-%
-% %%
-%
-% disp('Simulating data ...')
-% rng(2)
-% nsample = 999;
-% logM = zeros(nsample,1);
-% elp = zeros(nsample,1);
-% angle = zeros(nsample,1);
-% xsource = zeros(nsample,1);
-% ysource = zeros(nsample,1);
-%
-% for i=1:nsample
-%     i
-%     logM(i) = rand(1).*(11.8-10.5)+10.5;
-%     elp(i) = rand(1).*0.6;
-%     angle(i) = rand(1).*90;
-% %     XY = datasample([0.1 0.1; -0.1 0.1 ; 0.1 -0.1; -0.1 -0.1],1);
-% %     [XY(1),XY(2)] = pol2cart(rand(1).*2*pi,0.1.*sqrt(2));
-%     xsource(i) = (rand(1)-0.5).*0.4;
-%     ysource(i) = (rand(1)-0.5).*0.4; %datasample([-0.1 0.1],1); %(rand(1)-0.5).*0.1;
-%
-%
-%
-%     [XS ,YS ,R_ein ,sigma_cent ,Minterior]=SIE_SUB_RayTrace(XIM,YIM,XIM,YIM,10^logM(i),elp(i),1e-20,0,zLENS,zSOURCE,angle(i),[0 0]);
-%     SKY_IM1 = LumProfile(XS,YS,'gaussian',[1 0.02 xsource(i) ysource(i)]);
-%     SKY_IM2 = LumProfile(XS,YS,'gaussian',[1 0.02 xsource(i)+0.06 ysource(i)+0.06]);
-%     SKY_IM3 = LumProfile(XS,YS,'gaussian',[1 0.02 xsource(i)+0.06 ysource(i)-0.06]);
-%     SKY_IM = SKY_IM1 + SKY_IM2 + SKY_IM3;
-%     SKY_IM = SKY_IM./max(SKY_IM(:));
-%
-% %     FFT_IM = fftshift(fft2(fftshift(SKY_IM)));
-% %     mAx = max([real(FFT_IM(:)); imag(FFT_IM(:))]);
-% %     imwrite(real(FFT_IM)./mAx,[datapath 'FFT_test_lens_im96__' num2str(i,'%.4d') '.png']);
-% %     imwrite(imag(FFT_IM)./mAx,[datapath 'FFT_test_lens_im96__' num2str(i,'%.4d') '.png']);
-%
-%     imshow(SKY_IM,[],'xdata',[min(XIM(:)) max(XIM(:))].*3600.*180./pi,'ydata',[min(YIM(:)) max(YIM(:))].*3600.*180./pi); colormap(jet)
-%     pause;
-%
-% %     imwrite(SKY_IM,[datapath 'test_lens_im96__' num2str(i,'%.4d') '.png']);
-% end
-% % dlmwrite([datapath 'test_logM96.txt'],(logM-10.5)./1.3,' ')
-% % dlmwrite([datapath 'test_elp96.txt'],elp./0.6,' ')
-% % dlmwrite([datapath 'test_angle96.txt'],angle.*0.01./0.9,' ')
-% % hold on
-% % plot(subhalo_pars(3),subhalo_pars(4),' +r','markersize',10)
-%
-%
-% %%
-% figure
-% logM = load([datapath 'logM96.txt']);
-% elp = load([datapath 'elp96.txt']);
-% angle = load([datapath 'angle96.txt']);
-% predict=load([datapath 'predict_mea.txt']);
-% clf
-% s(1) = subplot(3,1,1);
-% plot(predict(:,1))
-% hold on
-% plot(logM,'--')
-%
-% s(2) = subplot(3,1,2);
-% plot(predict(:,2))
-% hold on
-% plot(elp,'--')
-%
-% s(3) = subplot(3,1,3);
-% plot(predict(:,3))
-% hold on
-% plot(angle,'--')
-%
-% linkaxes(s,'x');
-%
-% %%
-%
-% figure
-% logM=load([datapath 'test_logM96.txt']);
-% elp=load([datapath 'test_elp96.txt']);
-% angle=load([datapath 'test_angle96.txt']);
-% predict=load([datapath 'test_predict_mea.txt']);
-% clf
-% s(1) = subplot(3,1,1);
-% plot(predict(:,1))
-% hold on
-% plot(logM,'--')
-%
-% s(2) = subplot(3,1,2);
-% plot(predict(:,2))
-% hold on
-% plot(elp,'--')
-%
-% s(3) = subplot(3,1,3);
-% plot(predict(:,3))
-% hold on
-% plot(angle,'--')
-%
-% linkaxes(s,'x');
