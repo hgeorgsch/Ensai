@@ -2,6 +2,9 @@ function [IMS,PARAMS,src_pars,log_kappa] = Lensing_TrainingImage_Generator(nsamp
 
 % Depends on input file '/GREAT_IMS30.mat'.  Search for `load' for details.
 
+% Parameters
+%   test_or_train : used to generate filenames for output
+
 %WRITE = 1
 %test_or_train = 'test'
 if ~exist('WRITE','var')
@@ -908,6 +911,3 @@ end
 % axis equal
 
 end
-
-
-
