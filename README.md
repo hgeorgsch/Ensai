@@ -13,7 +13,7 @@ This code uses convolutional neural networks (with tensorflow) to estimate the p
 For those wanting to try it out: The best place to start is the ipython notebook. It's a quick demonstration of lens modeling with neural networks. 
 This is what you need:
 1) A working version of python and tensorflow. This should be easy: a simple installation on your laptop could probabily just be done with pip. (https://www.tensorflow.org/install/)
-2) The data: Unfortunately the files (specially the trained network weights) are too large to be hosted here. So we have put them here: 
+2) The data: Unfortunately the files (specially the trained network weights) are too large to be hosted here. So we have put them here (this links are stale as per 15 Nov 2021): 
     1.  [trained network weights](https://stanford.box.com/s/7wtkx1fr77156uec8h8apqm9my0aevpi) 
     2.  [a sample of lensing images to demonstrate the tool](https://stanford.box.com/s/tb2lpk824kee22ah3gz5b50trbp30vyx) 
     3.  [and a few cosmic ray and artifact maps](https://stanford.box.com/s/hn6l82pkmhm65xsls6g7tcjq63blj8v7)
