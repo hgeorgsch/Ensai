@@ -1,5 +1,7 @@
 *For the time being, there are no functional changes in this repo, compared to Hezaveh's original code.  The fork is created to add comments and documentation as we prepare to use and extend their work.*
 
+**Note** yhyu13's fork has started a refactoring project which may be worth investigating.  This too went stale in 2017, though.
+
 # Ensai: Lensing with Artificial Intelligence 
 Estimating parameters of strong gravitational lenses with convolutional neural networks.
 
